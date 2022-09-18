@@ -3,3 +3,4 @@
 __pycache__/config.cpython-310.pyc __pycache__/config.cpython-39.pyc
 __pycache__/
 flask_session
+.DS_Store
