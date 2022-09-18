@@ -7,12 +7,17 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_session import Session
+import logging
+
+log = logging.getLogger(__name__)
 
 app = Flask(__name__)
 app.config.from_object(Config)
 # TODO: Add any logging levels and handlers with app.logger
 Session(app)
 db = SQLAlchemy(app)
+log.error(Config.SQLALCHEMY_DATABASE_URI)
+log.error(db.engine.table_names())
 login = LoginManager(app)
 login.login_view = 'login'
 

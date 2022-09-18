@@ -14,7 +14,7 @@ def id_generator(size=32, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
 class User(UserMixin, db.Model):
-    __tablename__ = 'users'
+    __tablename__ = 'USERS'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     password_hash = db.Column(db.String(128))
@@ -33,7 +33,7 @@ def load_user(id):
     return User.query.get(int(id))
 
 class Post(db.Model):
-    __tablename__ = 'posts'
+    __tablename__ = 'POSTS'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(150))
     author = db.Column(db.String(75))
@@ -62,7 +62,7 @@ class Post(db.Model):
                     blob_service.delete_blob(blob_container, self.image_path)
             except Exception:
                 flash(Exception)
-            self.image_path =  filename
+            self.image_path = filename
         if new:
             db.session.add(self)
         db.session.commit()
