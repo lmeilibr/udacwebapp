@@ -14,7 +14,7 @@ def id_generator(size=32, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
 class User(UserMixin, db.Model):
-    __tablename__ = 'USERS'
+    __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     password_hash = db.Column(db.String(128))
@@ -33,7 +33,7 @@ def load_user(id):
     return User.query.get(int(id))
 
 class Post(db.Model):
-    __tablename__ = 'POSTS'
+    __tablename__ = 'posts'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(150))
     author = db.Column(db.String(75))
