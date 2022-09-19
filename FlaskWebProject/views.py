@@ -15,9 +15,6 @@ from FlaskWebProject.forms import LoginForm, PostForm
 from FlaskWebProject.models import User, Post
 from config import Config
 
-logging.basicConfig(level=logging.INFO)
-log = logging.getLogger(__name__)
-
 imageSourceUrl = 'https://' + app.config[
     'BLOB_ACCOUNT'] + '.blob.core.windows.net/' + app.config[
                      'BLOB_CONTAINER'] + '/'
